@@ -419,8 +419,7 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
    // 返回不同的尺寸以将披萨元素由一个尺寸改成另一个尺寸。由changePizzaSlices(size)函数调用
-  function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
+  function determineDx (oldWidth, size) {
     var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
@@ -446,10 +445,16 @@ var resizePizzas = function(size) {
 
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
+    // 将获取尺寸和设置尺寸分开，防止出现强制同步布局 FSL
+    var newwidth = [];
+    for (var i = 0; i < randomPizzaContainers.length; i++) {
+      var oldWidth = randomPizzaContainers[i].offsetWidth;
+      var dx = determineDx(oldWidth, size);
+      newwidth[i] = (randomPizzaContainers[i].offsetWidth + dx) + 'px';
+    }
+    for (var i = 0; i < randomPizzaContainers.length; i++) {
+      randomPizzaContainers[i].style.width = newwidth[i];
     }
   }
 
@@ -499,9 +504,14 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  var left = [];
+  var top = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    var phase = Math.sin((top / 1250) + (i % 5));
+    left[i] = items[i].basicLeft + 100 * phase + 'px';
+  }
+  for (var i = 0; i < items.length; i++) {
+    items[i].style.left = left[i];
   }
 
   // 再次使用User Timing API。这很值得学习
