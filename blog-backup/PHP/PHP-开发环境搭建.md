@@ -1,0 +1,23 @@
+##1.PHPStrom或NetBeans安装
+NetBeans是最好用的免费IDE，PHPStrom是最好用的收费IDE。两个都可以直接在官网下载。
+NetBeans官网：https://netbeans.org/
+PHPStrom官网：http://www.jetbrains.com/phpstorm/
+##2.Sublime Text 3或NotePad或EditPlus安装
+简单的编辑时，轻量级的工具更好用。同样都是在官网下载，或直接在百度搜索页面下载。
+##3.XShell或Putty
+XShell下载比较麻烦，但这玩意也不敢用破解版。
+XShell官网：https://www.netsarang.com/products/xsh_overview.html
+填写基本信息后，下载链接会发送到邮箱，点击才可以下载。邮箱，需要正确填写。
+![这里写图片描述](http://img.blog.csdn.net/20170613140536534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2lrYWphY2s=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+Putty功能比较弱，一般不怎么用。
+Putty：http://www.putty.org/
+##4.TortoiseSVN
+SVN使用时需要一个客户端，就是小乌龟。
+TortoiseSVN官网：https://tortoisesvn.net/downloads.html
+##5.Fiddler或Wireshark
+PHP开发，少不了要各种联网调试，Fiddler简单轻便，但是收费，Wireshark功能强大，各取所需即可。
+Fiddler官网：https://www.telerik.com/download/fiddler
+Wireshark官网：https://www.wireshark.org/download.html
+##6.FoxMail
+完美的邮箱客户端。工作必备。
+FoxMail官网：http://www.foxmail.com/
